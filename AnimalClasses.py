@@ -4,22 +4,24 @@ class Animal(ABC):
 
     #Attributes
 
+    customer_name = None
     name = None
     color = None
     age = None
     speed = None
-    isDead = False
     weight = None
+    id = None
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        self.value = "Animal"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        self.id = id
+        self.customer_name = customer_name
+        self.petType = "Animal"
         self.name = name
-        self.color = color
         self.age = age
-        self.speed = speed
-        self.isDead = isDead
         self.weight = weight
+        self.color = color
+        self.speed = speed
 
     #Methods
     @abstractmethod # so these are methods that will be defined later
@@ -42,7 +44,7 @@ class Animal(ABC):
         return "I am sleeping"
 
     def type(self):
-        return self.value
+        return self.petType
     
     def grow(self):
         return "I am growing"
@@ -58,9 +60,9 @@ class Mammal(Animal):
     legs = None
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Mammal"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Mammal"
 
     #Methods
     @abstractmethod
@@ -79,7 +81,7 @@ class Mammal(Animal):
         return "I give birth"
 
     def type(self):
-        return self.value
+        return self.petType
     
 
 class Cat(Mammal):
@@ -88,16 +90,39 @@ class Cat(Mammal):
     collar_color = None
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Cat"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name,name, color, age, speed, weight)
+        self.petType = "Cat"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self):
         return "I eat mice"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+    
+class Dog(Mammal):
+     #Attributes
+
+    collar_color = None
+
+    #Constructors
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name,name, color, age, speed, weight)
+        self.petType = "Dog"
+    
+    #Methods
+    def type(self):
+        return self.petType
+
+    def eat(self):
+        return "I eat meat"
     
     def move(self):
         return "I walk or run"
@@ -112,13 +137,13 @@ class Bat(Mammal):
     wings = None
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Bat"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Bat"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self):
         return "I eat meat"
@@ -143,13 +168,13 @@ class Platypus(Mammal):
 
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Budgie"
+    def __init__(self, name, color, age, speed, weight):
+        super().__init__(name, color, age, speed, weight)
+        self.petType = "Budgie"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self):
         return "I eat plants"
@@ -172,9 +197,9 @@ class Bird(Animal):
     legs = None
     isFlying = False
     
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Bird"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Bird"
         
     #Methods
     
@@ -188,7 +213,7 @@ class Bird(Animal):
         return "I breathe through my peak"   
     
     def type(self):
-        return self.value
+        return self.petType
         
     def eat(self):
         return "I eat worms"
@@ -203,36 +228,36 @@ class Bird(Animal):
 
 class Grass():
     def __init__(self):
-        self.value = "Grass"
+        self.petType = "Grass"
         
     def eat(self, otherThing):
-        return False, "Grass cannot eat " + str(otherThing.value) + "!"
+        return False, "Grass cannot eat " + str(otherThing.petType) + "!"
         
 class Leaves():
     def __init__(self):
-        self.value = "Leaves"
+        self.petType = "Leaves"
         
     def eat(self, otherThing):
-        return False, "Leaves cannot eat " + str(otherThing.value) + "!"
+        return False, "Leaves cannot eat " + str(otherThing.petType) + "!"
 
 # Antelope eats grass
 class Antelope(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Antelope"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(name, id, customer_name, color, age, speed, weight)
+        self.petType = "Antelope"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Grass":
+        if otherThing.petType == "Grass":
             return True, "Antelope eats Grass"
         else:
-            return False, "Antelope cannot eat " + str(otherThing.value) + "!"
+            return False, "Antelope cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -245,22 +270,22 @@ class Bigfish(Animal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Big-fish"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Big-fish"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
     
     def reproduce(self):
         return "I reproduce in water"
 
     def eat(self, otherThing):
-        if otherThing.value == "Little-fish":
+        if otherThing.petType == "Little-fish":
             return True, "Big fish eats Little-fish"
         else:
-            return False, "Big fish cannot eat " + str(otherThing.value) + "!"
+            return False, "Big fish cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I swim"
@@ -273,19 +298,19 @@ class Littlefish(Animal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Little-fish"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Little-fish"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
     
     def reproduce(self):
         return "I reproduce in water"
 
     def eat(self, otherThing):
-        return False, "Little-fish cannot eat " + str(otherThing.value) + "!"
+        return False, "Little-fish cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I swim"
@@ -298,22 +323,22 @@ class Bug(Animal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Bug"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Bug"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
     
     def reproduce(self):
         return "I reproduce in water"
 
     def eat(self, otherThing):
-        if otherThing.value == "Leaves":
+        if otherThing.petType == "Leaves":
             return True, "Bug eats Leaves"
         else:
-            return False, "Bug cannot eat " + str(otherThing.value) + "!"
+            return False, "Bug cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I crawl"
@@ -326,29 +351,29 @@ class Bear(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Bear"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Bear"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Big-fish":
+        if otherThing.petType == "Big-fish":
             return True, "Bear eats Big-Fish"
-        elif otherThing.value == "Bug":
+        elif otherThing.petType == "Bug":
             return True, "Bear eats Bug"
-        elif otherThing.value == "Leaves":
+        elif otherThing.petType == "Leaves":
             return True, "Bear eats leaves"
-        elif otherThing.value == "Chicken":
+        elif otherThing.petType == "Chicken":
             return True, "Bear eats Chicken"
-        elif otherThing.value == "Cow":
+        elif otherThing.petType == "Cow":
             return True, "Bear eats Cow"
-        elif otherThing.value == "Sheep":
+        elif otherThing.petType == "Sheep":
             return True, "Bear eats Sheep"
         else:
-            return False, "Bear cannot eat " + str(otherThing.value) + "!"
+            return False, "Bear cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -361,19 +386,19 @@ class Cow(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Cow"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Cow"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Grass":
+        if otherThing.petType == "Grass":
             return True, "Cow eats Grass"
         else:
-            return False, "Cow cannot eat " + str(otherThing.value) + "!"
+            return False, "Cow cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -386,19 +411,19 @@ class Sheep(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Sheep"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Sheep"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Grass":
+        if otherThing.petType == "Grass":
             return True, "Sheep eats Grass"
         else:
-            return False, "Sheep cannot eat " + str(otherThing.value) + "!"
+            return False, "Sheep cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -411,40 +436,40 @@ class Chicken(Bird):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Chicken"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Chicken"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Bug":
+        if otherThing.petType == "Bug":
             return True, "Chicken eats Bug"
         else:
-            return False, "Chicken cannot eat " + str(otherThing.value) + "!"
+            return False, "Chicken cannot eat " + str(otherThing.petType) + "!"
         
 # Fox eats chicken and sheep
 class Fox(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Fox"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Fox"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Chicken":
+        if otherThing.petType == "Chicken":
             return True, "Fox eats Chicken"
-        elif otherThing.value == "Sheep":
+        elif otherThing.petType == "Sheep":
             return True, "Fox eats Sheep"
         else:
-            return False, "Fox cannot eat " + str(otherThing.value) + "!"
+            return False, "Fox cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -457,19 +482,19 @@ class Giraffe(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Giraffe"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Giraffe"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Leaves":
+        if otherThing.petType == "Leaves":
             return True, "Giraffe eats Leaves"
         else:
-            return False, "Girrafe cannot eat " + str(otherThing.value) + "!"
+            return False, "Girrafe cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -482,21 +507,21 @@ class Lion(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Lion"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Lion"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Antelope":
+        if otherThing.petType == "Antelope":
             return True, "Lion eats Antelope"
-        elif otherThing.value == "Cow":
+        elif otherThing.petType == "Cow":
             return True, "Lion eats Cow"
         else:
-            return False, "Lion cannot eat " + str(otherThing.value) + "!"
+            return False, "Lion cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
@@ -509,19 +534,19 @@ class Panda(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, name, color, age, speed, isDead, weight):
-        super().__init__(name, color, age, speed, isDead, weight)
-        self.value = "Panda"
+    def __init__(self, id, customer_name, name, color, age, speed, weight):
+        super().__init__(id, customer_name, name, color, age, speed, weight)
+        self.petType = "Panda"
     
     #Methods
     def type(self):
-        return self.value
+        return self.petType
 
     def eat(self, otherThing):
-        if otherThing.value == "Leaves":
+        if otherThing.petType == "Leaves":
             return True, "Panda eats Leaves"
         else:
-            return False, "Panda cannot eat " + str(otherThing.value) + "!"
+            return False, "Panda cannot eat " + str(otherThing.petType) + "!"
     
     def move(self):
         return "I walk or run"
