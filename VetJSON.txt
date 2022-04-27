@@ -1,40 +1,4 @@
-   {
-    "age": 5, 
-    "color": "Brown", 
-    "customer_name": "Ahmed", 
-    "id": 0, 
-    "name": "Garfield", 
-    "petType": "Cat", 
-    "speed": 20, 
-    "weight": 20
-  }, 
-  {
-    "age": 3, 
-    "color": "Black and white", 
-    "customer_name": "Jack", 
-    "id": 1, 
-    "name": "Kung Fu Panda", 
-    "petType": "Panda", 
-    "speed": 10, 
-    "weight": 60
-  }, 
-  {
-    "age": 7, 
-    "color": "Blue", 
-    "customer_name": "Alice", 
-    "id": 2, 
-    "name": "Parrot", 
-    "petType": "Bird", 
-    "speed": 30, 
-    "weight": 2
-  }, 
-  {
-    "age": 6, 
-    "color": "Black", 
-    "customer_name": "Zoe", 
-    "id": 3, 
-    "name": "Sparky", 
-    "petType": "Dog", 
-    "speed": 15, 
-    "weight": 50
-  }
+GarfieldJSON = Garfield.__dict__
+PandaBearJSON = PandaBear.__dict__
+ParrotJSON = Parrot.__dict__
+SparkyJSON = Sparky.__dict__
