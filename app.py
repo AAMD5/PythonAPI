@@ -1,9 +1,9 @@
 import flask  
 import json
-from flask import request, jsonify
+from flask import Flask, request, jsonify
 from AnimalClasses import *
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 app.config["DEBUG"] = True
 
 # Create some test data for our program.  
@@ -118,4 +118,5 @@ def Ahmed():
     
     return jsonify(results)  
 
-app.run()
+if __name__ == '__main__':
+   app.run() 
