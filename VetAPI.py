@@ -30,9 +30,10 @@ for line in readfile: # for each line (pet object) in petObjectsFile
 # <a href='/api/somearea/vetcustomers/all')>here</a>
 
 def home():
-    msg1 = "<h1>Welcome to the Vet!</h1><p>Bring your pets here!</p>"
-    msg2 = "<h1>Select <something> to find <something></p>"
-    return msg1 + "\n\n" + msg2  #what the api returns
+    msg1 = "<h1>Welcome to TSI Vet!</h1><p>1) Click <a href='/api/somearea/vetcustomers/all')>here</a> to view all the pets and owners details.</p>"
+    msg2 = "2) Click <a href='/api/somearea/vetcustomers/zoe')>here</a> to view all the pets owned by Zoe.</p>"
+    msg3 = "3) Click <a href='/api/somearea/vetcustomers/ahmed')>here</a> to view all the pets owned by Ahmed.</p>"
+    return msg1 + "\n\n" + msg2 + "\n\n" + msg3  #what the api returns
 
 # A route to return all of the available entries in our collection 
 # of pet owners.
@@ -48,7 +49,7 @@ def get_owner_by_pet_id():
     if 'pet_id' in request.args:
         pet_id = int(request.args['pet_id'])
     else:
-        return "Error: requested pet ID does not exist."
+        return "Error: requested pet ID does not exist. Click <a href='/')>here</a> to return to the main page."
 
     # Create an empty list for our results
     results = []
@@ -69,7 +70,7 @@ def get_owner_by_customer_id():
     if 'customer_id' in request.args:
         customer_id = int(request.args['customer_id'])
     else:
-        return "Error: requested customer ID does not exist."
+        return "Error: requested customer ID does not exist. Click <a href='/')>here</a> to return to the main page."
 
     results = []
 
@@ -85,7 +86,7 @@ def get_owner_by_pet_type():
     if 'petType' in request.args:
         petType = request.args['petType']
     else:
-        return "Error: requested pet type does not exist."
+        return "Error: requested pet type does not exist. Click <a href='/')>here</a> to return to the main page."
 
     results = []
    
@@ -94,5 +95,27 @@ def get_owner_by_pet_type():
             results.append(PetOwner)
 
     return jsonify(results)
+
+@app.route('/api/somearea/vetcustomers/zoe', methods=['GET'])
+def Zoe():
+
+    results = []
+    
+    for PetOwner in PetOwners:
+        if PetOwner['customer_name'] == 'Zoe':
+            results.append(PetOwner)
+    
+    return jsonify(results)  
+
+@app.route('/api/somearea/vetcustomers/ahmed', methods=['GET'])
+def Ahmed():
+
+    results = []
+    
+    for PetOwner in PetOwners:
+        if PetOwner['customer_name'] == 'Ahmed':
+            results.append(PetOwner)
+    
+    return jsonify(results)  
 
 app.run()

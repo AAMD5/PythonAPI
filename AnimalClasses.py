@@ -11,9 +11,10 @@ class Animal(ABC):
     age = None
     weight = None
     pet_id = None
+    visit_reason = None
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
         self.pet_id = pet_id
         self.customer_id = customer_id
         self.customer_name = customer_name
@@ -22,6 +23,7 @@ class Animal(ABC):
         self.age = age
         self.weight = weight
         self.color = color
+        self.visit_reason = visit_reason
 
     #Methods
     @abstractmethod # so these are methods that will be defined later
@@ -60,8 +62,8 @@ class Mammal(Animal):
     legs = None
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Mammal"
 
     #Methods
@@ -90,8 +92,8 @@ class Cat(Mammal):
     collar_color = None
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name,name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name,name, color, age, weight, visit_reason)
         self.petType = "Cat"
     
     #Methods
@@ -113,8 +115,8 @@ class Dog(Mammal):
     collar_color = None
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name,name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name,name, color, age, weight, visit_reason)
         self.petType = "Dog"
     
     #Methods
@@ -137,8 +139,8 @@ class Bat(Mammal):
     wings = None
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Bat"
     
     #Methods
@@ -168,8 +170,8 @@ class Platypus(Mammal):
 
 
     #Constructors
-    def __init__(self, name, color, age, weight):
-        super().__init__(name, color, age, weight)
+    def __init__(self, name, color, age, weight, visit_reason):
+        super().__init__(name, color, age, weight, visit_reason)
         self.petType = "Budgie"
     
     #Methods
@@ -197,8 +199,8 @@ class Bird(Animal):
     legs = None
     isFlying = False
     
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Bird"
         
     #Methods
@@ -245,8 +247,8 @@ class Antelope(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(name, pet_id, customer_id, customer_name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(name, pet_id, customer_id, customer_name, color, age, weight, visit_reason)
         self.petType = "Antelope"
     
     #Methods
@@ -270,8 +272,8 @@ class Bigfish(Animal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Big-fish"
     
     #Methods
@@ -298,8 +300,8 @@ class Littlefish(Animal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Little-fish"
     
     #Methods
@@ -323,8 +325,8 @@ class Bug(Animal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Bug"
     
     #Methods
@@ -351,8 +353,8 @@ class Bear(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Bear"
     
     #Methods
@@ -386,8 +388,8 @@ class Cow(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Cow"
     
     #Methods
@@ -411,8 +413,8 @@ class Sheep(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Sheep"
     
     #Methods
@@ -436,8 +438,8 @@ class Chicken(Bird):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Chicken"
     
     #Methods
@@ -455,8 +457,8 @@ class Fox(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Fox"
     
     #Methods
@@ -482,8 +484,8 @@ class Giraffe(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Giraffe"
     
     #Methods
@@ -507,8 +509,8 @@ class Lion(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Lion"
     
     #Methods
@@ -534,8 +536,8 @@ class Panda(Mammal):
      #Attributes
 
     #Constructors
-    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight):
-        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight)
+    def __init__(self, pet_id, customer_id, customer_name, name, color, age, weight, visit_reason):
+        super().__init__(pet_id, customer_id, customer_name, name, color, age, weight, visit_reason)
         self.petType = "Panda"
     
     #Methods
