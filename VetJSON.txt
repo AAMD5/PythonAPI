@@ -1,4 +1,0 @@
-GarfieldJSON = Garfield.__dict__
-PandaBearJSON = PandaBear.__dict__
-ParrotJSON = Parrot.__dict__
-SparkyJSON = Sparky.__dict__

@@ -1,5 +1,0 @@
-{'id': 0, 'customer_name': 'Ahmed', 'petType': 'Cat', 'name': 'Garfield', 'age': 5, 'weight': 20, 'color': 'Brown'}
-{'id': 1, 'customer_name': 'Jack', 'petType': 'Panda', 'name': 'Kung Fu Panda', 'age': 3, 'weight': 60, 'color': 'Black and white'}
-{'id': 2, 'customer_name': 'Alice', 'petType': 'Bird', 'name': 'Parrot', 'age': 7, 'weight': 2, 'color': 'Blue'}
-{'id': 3, 'customer_name': 'Zoe', 'petType': 'Dog', 'name': 'Sparky', 'age': 6, 'weight': 50, 'color': 'Black'}
-{'id': 4, 'customer_name': 'Zoe', 'petType': 'Dog', 'name': 'Bolt', 'age': 6, 'weight': 20, 'color': 'white'}
